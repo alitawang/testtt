@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/",
+  out.width = "100%"
+)
+```
+
+# bis620.2022
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of bis620.2022 is to 
+
+1. Capture spectral signature of Accelerometry data with three dimensions using Fast Fourier Transform (FFT) and also calculate frequency with time.
+
+2. Create a visualization for movements in three dimensions with time or frequency.
+
+## Installation
+
+You can install the development version of bis620.2022 from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("bis620.2022")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(bis620.2022)
+## basic example code
+#to get FFT of dimensions and frequency from time
+data("ukb_accel")
+ukb_accel |> spectral_signature()
+#to create visualization of movement with time
+ukb_accel |> accel_plot()
+#to create visualization of logarithm transformed FFT
+#movement with frequency
+ukb_accel |> spectral_signature(take_log = T) |> accel_plot()
+```
